@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 
 const sequelize = require("../config/connection");
 
@@ -16,6 +17,12 @@ User.init(
         },
     },
     {
+        hooks: {
+            beforeCreate: async (data) => {
+                data.password = bcrypt.hashSync(data.password, 10);
+                return data;
+            },
+        },
         sequelize,
     }
 );

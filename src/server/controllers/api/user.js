@@ -57,7 +57,9 @@ userRouter.post("/login", async (req, res) => {
         maxAge: 1000 * 60 * 60 * 5,
     });
 
-    res.status(200).end();
+    res.status(200).json({
+        id: existingUser.id,
+    });
 });
 
 module.exports = userRouter;

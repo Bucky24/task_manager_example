@@ -37,3 +37,17 @@ document.getElementById("loginForm").addEventListener("submit", (event) => {
         errorHandler.textContent = "Error logging in!";
     });
 });
+
+document.getElementById("createItemForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const errorHandler = document.getElementById("createItemFormError");
+
+    const title = document.getElementById("newItemTitle").value;
+
+    errorHandler.textContent = "";
+    callApi("/item", "POST", { title }).then(() => {
+
+    }).catch((e) => {
+        errorHandler.textContent = "Error Creating Item!";
+    });
+});

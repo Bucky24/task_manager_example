@@ -13,9 +13,20 @@ itemRouter.post('/', auth, async (req, res) => {
         UserId: req.user_id,
     });
 
-    req.status(200).json({
+    res.status(200).json({
         id: newItem.id,
     });
+});
+
+itemRouter.get('/foruser', auth, async (req, res) => {
+    const items = await Item.findAll({
+        where: {
+            UserId: req.user_id,
+        },
+    });
+
+    const plainItems = items.map((item) => item.get({ plain: true }));
+    res.status(200).json(plainItems);
 });
 
 module.exports = itemRouter;

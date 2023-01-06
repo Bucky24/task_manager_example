@@ -1,0 +1,95 @@
+body {
+    margin: 10px;
+}
+
+* {
+    --purple: #CE00BA;
+    --light-purple: #F6B9F0;
+    --button-purple: #BF64B6;
+    --white: #fff;
+}
+
+.purple_bg {
+    background-color: var(--purple);
+}
+
+.light-purple_bg {
+    background-color: var(--light-purple);
+}
+
+.button-purple_bg {
+    background-color: var(--button-purple);
+}
+
+.white {
+    color: var(--white);
+}
+
+.header_text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.subheader_text {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+.buttonlabel_text {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+}
+
+.topHeader {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.formHeader {
+    margin-bottom: 8px;
+}
+
+.formSection {
+    padding: 15px;
+}
+
+.formLabel {
+    margin-bottom: 11px;
+}
+
+.formTextField {
+    height: 37px;
+}
+
+.formInputGroup {
+    margin-bottom: 16px;
+}
+
+.centered_text {
+    text-align: center;
+}
+
+.centered_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button {
+    display: block;
+    appearance: none;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+}
+

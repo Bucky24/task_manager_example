@@ -81,6 +81,9 @@ function showItemPopup(id, title) {
     button2.classList.add("button", "button-purple_bg", 'buttonlabel_text' , 'white');
     button2.style['margin-top'] = '15px';
     buttonHolder.appendChild(button2);
+    button2.addEventListener("click", () => {
+        showConfirmDeletePopup(id);
+    });
 
     openPopup("Item Options", buttonHolder);
 }
@@ -110,6 +113,31 @@ function showEditPopup(id, title) {
             console.error("Failed to update item", e);
         });
     });
+}
+
+function showConfirmDeletePopup(id) {
+    const holder = document.createElement("div");
+    openPopup("Confirm", holder);
+
+    const textHolder = document.createElement("div");
+    textHolder.classList.add("buttonlabel_text", "white", "centered_text");
+    textHolder.textContent = "Are you sure you want to delete this item?";
+    holder.appendChild(textHolder);
+
+    const button1 = document.createElement("button");
+    button1.textContent = "Delete";
+    button1.classList.add("button", "button-purple_bg", 'buttonlabel_text' , 'white');
+    button1.style['margin-top'] = '15px';
+    holder.appendChild(button1);
+
+    button1.addEventListener("click", () => {
+        callApi(`/item/${id}`, "DELETE").then(() => {
+            closePopup();
+            reloadItems();
+        }).catch((e) => {
+            console.error("Could not delete item", e);
+        })
+    })
 }
 
 document.getElementById("loginForm").addEventListener("submit", (event) => {

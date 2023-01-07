@@ -100,6 +100,16 @@ function showEditPopup(id, title) {
     button1.classList.add("button", "button-purple_bg", 'buttonlabel_text' , 'white');
     button1.style['margin-top'] = '15px';
     holder.appendChild(button1);
+
+    button1.addEventListener("click", () => {
+        const newTitle = textarea.value;
+        callApi(`/item/${id}`, "PATCH", { title: newTitle }).then(() => {
+            closePopup();
+            reloadItems();
+        }).catch((e) => {
+            console.error("Failed to update item", e);
+        });
+    });
 }
 
 document.getElementById("loginForm").addEventListener("submit", (event) => {

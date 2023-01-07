@@ -29,4 +29,29 @@ itemRouter.get('/foruser', auth, async (req, res) => {
     res.status(200).json(plainItems);
 });
 
+itemRouter.patch("/:id", auth, async (req, res) => {
+    const { id } = req.params;
+    const { title } = req.body;
+    const user_id = req.user_id;
+
+    const item = await Item.findByPk(id);
+    if (!item) {
+        res.status(404).end();
+        return;
+    }
+
+    if (item.UserId != user_id) {
+        res.status(403).end();
+        return;
+    }
+
+    await Item.update({ title }, {
+        where: {
+            id,
+        },
+    });
+
+    res.status(200).json({ id });
+});
+
 module.exports = itemRouter;

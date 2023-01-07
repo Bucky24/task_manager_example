@@ -8,6 +8,9 @@ body {
     --button-purple: #BF64B6;
     --white: #fff;
     --error-red: #FF0000;
+    --modal-background: #D9D9D980;
+    --middle-purple: #B0009F;
+    --gray: #D9D9D9;
 }
 
 .purple_bg {
@@ -28,6 +31,18 @@ body {
 
 .error-red {
     color: var(--error-red);
+}
+
+.modal-background_bg {
+    background-color: var(--modal-background);
+}
+
+.middle-purple_bg {
+    background-color: var(--middle-purple);
+}
+
+.gray_bg {
+    background-color: var(--gray);
 }
 
 .header_text {
@@ -94,6 +109,38 @@ body {
 .itemRow {
     border: 1px solid black;
     padding: 8px;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+#popupHolder {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#popupInner {
+    width: calc(100% - 20px);
+}
+
+#popupHeader {
+    padding-top: 5px;
+}
+
+#popupBody {
+    padding: 15px;
+}
+
+.editItemTextarea {
+    width: 100%;
+    height: 171px;
 }
 
 .centered_text {
@@ -116,5 +163,5 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
